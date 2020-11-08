@@ -1,0 +1,36 @@
+spring:
+  profiles:
+    active: dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      auto-commit: true
+      connection-test-query: select 1
+      connection-timeout: 30000
+      idle-timeout: 30000
+      max-lifetime: 1800000
+      maximum-pool-size: 15
+      minimum-idle: 0
+      pool-name: DatebookHikariCP
+  jpa:
+    #    数据库方言（mysql特有语法支持）
+    properties.hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
+    #    是否在控制台显示sql语句
+    show-sql: false
+    #    解决lazy加载异常
+    properties.hibernate.enable_lazy_load_no_trans: "true"
+#    update：如果没数据库表就创建表，如果有就不创建
+#    hibernate:
+#      ddl-auto: update
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+obs:
+  accessKey: RQ2KDDUO1YYQT92CJLH1
+  bucketName: tyun-test
+  endPoint: obs.cn-east-3.myhuaweicloud.com
+  secretKey: VH6hqIOUj8INp956TVLpVCU0bfOlQpuvuvq4eLA7
+

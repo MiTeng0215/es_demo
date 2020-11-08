@@ -1,0 +1,40 @@
+spring:
+  datasource:
+    username: root
+    #    ENC(tqS9EIuNeVMVnJNJC5887A==)
+    password: 521215
+    #    ENC(Z0nhF0O/BPSQQxRhBQqc/qwCCl0ZhDTO)
+    #    password: ENC(oRLEEPDsyM5ZjaOV3hit2A==)
+    url: jdbc:mysql://localhost:3306/jpa_test?serverTimezone=Asia/Shanghai&useSSL=false&characterEncoding=UTF-8
+#    serverTimezone=Asia/Shanghai&useSSL=false/
+  redis:
+    database: 2
+    host: localhost
+    port: 6379
+    jedis:
+      pool:
+        max-active: 200
+        max-wait: -1
+        max-idle: 8
+        min-idle: 0
+      timeout: 10000
+
+jwt:
+  #  id:签发者
+  #  ttl：过期时间
+  secret: jwttestdemo #jwt的密钥，需要好好保管
+  expiration: 7200
+  refreshExpiration: 86400
+
+namespace:
+  token: 'auth:token:'
+  validKey: 'auth:validKey:'
+  wrong: 'pwd:wrong:'
+
+#密码错误账号锁定时间
+lockTime: 1800
+
+timer:
+  timeout: 180000
+
+
