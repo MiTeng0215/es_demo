@@ -2,6 +2,7 @@ package com.aegis.es_demo.controller;
 
 import com.aegis.es_demo.service.inter.ObsService;
 import com.aegis.es_demo.service.inter.PoiService;
+import com.aegis.es_demo.utils.AsposeUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +28,7 @@ public class ObsController {
     @ApiOperation(value = "上传word")
     @PostMapping
     public String uploadFile(@RequestBody MultipartFile file ) throws IOException, TransformerException, ParserConfigurationException {
-        String downPath = obsService.uploadFile(file);
-        String htmlStr = poiService.wordToHtml(file);
-        return downPath+"---------"+htmlStr;
+        String s = AsposeUtil.docPdf(file);
+        return s;
     }
 }
